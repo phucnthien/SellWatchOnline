@@ -10,42 +10,52 @@ use yii\bootstrap\ActiveForm;
 $this->title = 'Login';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="container">
+<style>
+    #brand
+    {
+        display:inline-block; 
+        color: #fff; 
+        margin-left:0px;
+    }
+    .label_remember
+    {
+         display:inline-block; 
+         color: #fff;  
+         margin-left:20px;
+    }
+</style>
+<div class="main-agile">
+        <h1>SELL WATCH ONLINE</h1>
+        <div id="w3ls_form" class="signin-form">
+            <!-- Sign In Form -->
+            <?php $form = ActiveForm::begin(['id' => 'login-form',
+                'options' => [
+                            'style' => 'margin:auto; position:relative;',
+
+                ]
 
 
-    <div class="row">
-        <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1">
 
-            <div class="panel-body">
-                <?php $form = ActiveForm::begin(['id' => 'login-form']); ?>
-                <hr />
-                <h5>Enter Details to Login</h5>
-                <br />
-                <div class="form-group input-group">
-                    <span class="input-group-addon"><i class="fa fa-tag"  ></i></span>
-                    <?= $form->field($model, 'username')->textInput(['autofocus' => true, 'placeholder' => 'Your Username', 'class'=> 'form-control'])->label(false) ?>
-                </div>
-                <div class="form-group input-group">
-                    <span class="input-group-addon"><i class="fa fa-lock"  ></i></span>
-                    <?= $form->field($model, 'password')->passwordInput(['placeholder' => 'Your Password', 'class'=> 'form-control' ])->label(false) ?>
-                </div>
-                <div class="form-group">
-                    <label class="checkbox-inline">
-                        <input type="checkbox" /> Remember me
-                    </label>
-                    <span class="pull-right">
-                     <a href="index.html" >Forget password ? </a> 
-                 </span>
-             </div>
 
-             <a href="index.html" class="btn btn-primary ">Login Now</a>
-             <hr />
-
-             <?php ActiveForm::end(); ?>
-         </div>
-
-     </div>
-
- </div>
-
-</div>
+            ]); ?>
+               
+                <h2>ĐĂNG NHẬP</h2>
+                <p>User Name </p>
+                <?= $form->field($model, 'username')->textInput(['autofocus' => true,'style'=>'width:100%'])->label(false) ?>
+                <p>Password</p>
+                 <?= $form->field($model, 'password')->passwordInput(['style'=>'width:100%'])->label(false) ?>  
+                <?= $form->field($model, 'rememberMe')->checkbox(['id'=>'brand'])->label(false)?>
+                <label for="brand" class="label_remember"><span></span> Remember me ?</label> 
+                <input type="submit" value="SIGN IN" style="margin-top: 20px; ">
+                
+             
+            <?php ActiveForm::end(); ?>
+            <!-- //Sign In Form -->
+            <!-- Sign up Form-->
+           
+            <!-- Sign up Form-->
+        </div>
+        <!-- copyright -->
+        
+        <!-- //copyright -->  
+    </div>  

@@ -17,9 +17,10 @@ class AppAsset extends AssetBundle
         'assets/css/font-awesome.css',
         'assets/css/basic.css',
         'assets/css/custom.css',
+        'assets/css/style.css',
     ];
     public $js = [
-        
+         'assets/js/script.js',
         'assets/js/bootstrap.js',
         'assets/js/jquery.metisMenu.js',
         'assets/js/custom.js',

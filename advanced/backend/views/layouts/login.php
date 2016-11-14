@@ -42,7 +42,7 @@ AppAsset::register($this);
                         <br />
                         <div class="form-group input-group">
                             <span class="input-group-addon"><i class="fa fa-tag"  ></i></span>
-                            <input type="text" class="form-control" placeholder="Your Username " />
+                            <input type="text" class="form-control" placeholder="Your Username " /> 
                         </div>
                         <div class="form-group input-group">
                             <span class="input-group-addon"><i class="fa fa-lock"  ></i></span>
