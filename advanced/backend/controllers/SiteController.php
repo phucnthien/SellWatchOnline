@@ -18,26 +18,26 @@ class SiteController extends Controller
     public function behaviors()
     {
         return [
-            'access' => [
-                'class' => AccessControl::className(),
-                'rules' => [
-                    [
-                        'actions' => ['login', 'error'],
-                        'allow' => true,
-                    ],
-                    [
-                        'actions' => ['logout', 'index'],
-                        'allow' => true,
-                        'roles' => ['@'],
-                    ],
-                ],
-            ],
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'logout' => ['post'],
-                ],
-            ],
+        'access' => [
+        'class' => AccessControl::className(),
+        'rules' => [
+        [
+        'actions' => ['login', 'error'],
+        'allow' => true,
+        ],
+        [
+        'actions' => ['logout', 'index'],
+        'allow' => true,
+        'roles' => ['@'],
+        ],
+        ],
+        ],
+        'verbs' => [
+        'class' => VerbFilter::className(),
+        'actions' => [
+        'logout' => ['post'],
+        ],
+        ],
         ];
     }
 
@@ -47,9 +47,9 @@ class SiteController extends Controller
     public function actions()
     {
         return [
-            'error' => [
-                'class' => 'yii\web\ErrorAction',
-            ],
+        'error' => [
+        'class' => 'yii\web\ErrorAction',
+        ],
         ];
     }
 
@@ -60,8 +60,11 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
-    }
+        
+        $this->layout ='admin';
+      
+      return $this->render('index');
+  }
 
     /**
      * Login action.
@@ -80,7 +83,7 @@ class SiteController extends Controller
         } else {
             return $this->render('login', [
                 'model' => $model,
-            ]);
+                ]);
         }
     }
 
