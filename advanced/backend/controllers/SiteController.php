@@ -61,7 +61,7 @@ class SiteController extends Controller
     public function actionIndex()
     {
         
-        $this->layout ='admin';
+    // $this->layout ='product-manager';
       
       return $this->render('index');
   }

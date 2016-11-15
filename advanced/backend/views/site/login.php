@@ -41,9 +41,9 @@ $this->params['breadcrumbs'][] = $this->title;
                
                 <h2>ĐĂNG NHẬP</h2>
                 <p>User Name </p>
-                <?= $form->field($model, 'username')->textInput(['autofocus' => true,'style'=>'width:100%'])->label(false) ?>
+                <?= $form->field($model, 'username')->textInput(['autofocus' => true,'style'=>'width:100%; padding: .4em 1em;'])->label(false) ?>
                 <p>Password</p>
-                 <?= $form->field($model, 'password')->passwordInput(['style'=>'width:100%'])->label(false) ?>  
+                 <?= $form->field($model, 'password')->passwordInput(['style'=>'width:100%; padding: .4em 1em;'])->label(false) ?>  
                 <?= $form->field($model, 'rememberMe')->checkbox(['id'=>'brand'])->label(false)?>
                 <label for="brand" class="label_remember"><span></span> Remember me ?</label> 
                 <input type="submit" value="SIGN IN" style="margin-top: 20px; ">
