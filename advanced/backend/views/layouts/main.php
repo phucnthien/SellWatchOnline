@@ -35,7 +35,7 @@ AppAsset::register($this);
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html"><?= (new Request)->getBaseUrl()?></a>
+                <a class="navbar-brand" href="index.html">THIEN PHUC LTD</a>
             </div>
 
             <div class="header-right">

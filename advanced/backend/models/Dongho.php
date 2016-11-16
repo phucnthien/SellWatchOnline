@@ -44,7 +44,7 @@ class Dongho extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['masp', 'tensp', 'mota', 'brand_id', 'id_kieumay', 'id_kieudang', 'created_at', 'updated_at'], 'required'],
+            [['masp', 'tensp', 'mota', 'brand_id', 'id_kieumay', 'id_kieudang', 'created_at', 'updated_at'], 'required','message'=>'Không thể để trống'],
             [['brand_id', 'id_kieumay', 'id_kieudang', 'status', 'created_at', 'updated_at'], 'integer'],
             [['masp', 'tensp', 'mota', 'xuatxu', 'loaikinh', 'loaiday', 'loaivo', 'duongkinh', 'doday', 'dochiunuoc', 'tinhnangkhac', 'giaban', 'gianhap'], 'string', 'max' => 255],
             [['masp'], 'unique'],
@@ -58,25 +58,25 @@ class Dongho extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'masp' => 'Masp',
-            'tensp' => 'Tensp',
-            'mota' => 'Mota',
-            'xuatxu' => 'Xuatxu',
-            'brand_id' => 'Brand ID',
-            'id_kieumay' => 'Id Kieumay',
-            'id_kieudang' => 'Id Kieudang',
-            'loaikinh' => 'Loaikinh',
-            'loaiday' => 'Loaiday',
-            'loaivo' => 'Loaivo',
-            'duongkinh' => 'Duongkinh',
-            'doday' => 'Doday',
-            'dochiunuoc' => 'Dochiunuoc',
-            'tinhnangkhac' => 'Tinhnangkhac',
-            'giaban' => 'Giaban',
-            'gianhap' => 'Gianhap',
+            'masp' => 'Mã sản phẩm',
+            'tensp' => 'Tên sản phẩm',
+            'mota' => 'Mô tả ',
+            'xuatxu' => 'Xuất xứ',
+            'brand_id' => 'Nhãn hiệu',
+            'id_kieumay' => 'Kiểu máy',
+            'id_kieudang' => 'Kiểu dáng',
+            'loaikinh' => 'Loại kính',
+            'loaiday' => 'Loại dây',
+            'loaivo' => 'Loại vỏ',
+            'duongkinh' => 'Đường kính',
+            'doday' => 'Độ dày',
+            'dochiunuoc' => 'Độ chịu nước',
+            'tinhnangkhac' => 'Tính năng khác',
+            'giaban' => 'Giá bán',
+            'gianhap' => 'Giá nhập',
             'status' => 'Status',
-            'created_at' => 'Created At',
-            'updated_at' => 'Updated At',
+            // 'created_at' => 'Created At',
+            // 'updated_at' => 'Updated At',
         ];
     }
 }
