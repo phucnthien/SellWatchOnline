@@ -74,7 +74,7 @@ class Dongho extends \yii\db\ActiveRecord
             'tinhnangkhac' => 'Tính năng khác',
             'giaban' => 'Giá bán',
             'gianhap' => 'Giá nhập',
-            'status' => 'Status',
+            'status' => 'Trạng thái',
             // 'created_at' => 'Created At',
             // 'updated_at' => 'Updated At',
         ];

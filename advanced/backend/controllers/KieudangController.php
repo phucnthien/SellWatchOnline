@@ -3,16 +3,16 @@
 namespace backend\controllers;
 
 use Yii;
-use backend\models\Dongho;
-use backend\models\DonghoSearch;
+use backend\models\Kieudang;
+use backend\models\KieudangSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * DonghoController implements the CRUD actions for Dongho model.
+ * KieudangController implements the CRUD actions for Kieudang model.
  */
-class DonghoController extends Controller
+class KieudangController extends Controller
 {
     /**
      * @inheritdoc
@@ -30,14 +30,12 @@ class DonghoController extends Controller
     }
 
     /**
-     * Lists all Dongho models.
+     * Lists all Kieudang models.
      * @return mixed
      */
     public function actionIndex()
     {
-
-         //$this->layout ='product-manager';
-        $searchModel = new DonghoSearch();
+        $searchModel = new KieudangSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -47,7 +45,7 @@ class DonghoController extends Controller
     }
 
     /**
-     * Displays a single Dongho model.
+     * Displays a single Kieudang model.
      * @param integer $id
      * @return mixed
      */
@@ -59,13 +57,14 @@ class DonghoController extends Controller
     }
 
     /**
-     * Creates a new Dongho model.
+     * Creates a new Kieudang model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Dongho();
+        
+        $model = new Kieudang();
          $date = time();
         $model->created_at = $date;
         $model->updated_at = $date;
@@ -79,7 +78,7 @@ class DonghoController extends Controller
     }
 
     /**
-     * Updates an existing Dongho model.
+     * Updates an existing Kieudang model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -87,7 +86,7 @@ class DonghoController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-        
+
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
@@ -98,7 +97,7 @@ class DonghoController extends Controller
     }
 
     /**
-     * Deletes an existing Dongho model.
+     * Deletes an existing Kieudang model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -111,15 +110,15 @@ class DonghoController extends Controller
     }
 
     /**
-     * Finds the Dongho model based on its primary key value.
+     * Finds the Kieudang model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return Dongho the loaded model
+     * @return Kieudang the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Dongho::findOne($id)) !== null) {
+        if (($model = Kieudang::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
