@@ -14,7 +14,8 @@ class m161114_071158_log extends Migration
 
         $this->createTable('{{%tbl_log}}', [
             'id' => $this->primaryKey(),
-            'content' => $this->string()->notNull()->unique(),
+            'content' => $this->text()->notNull(),
+            'table_change' => $this->string()->notNull(),
             'staff_id' =>$this->integer()->notNull(),
             'created_at' => $this->integer()->notNull(),
             

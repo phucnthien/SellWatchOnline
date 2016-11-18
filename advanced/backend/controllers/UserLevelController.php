@@ -3,16 +3,16 @@
 namespace backend\controllers;
 
 use Yii;
-use backend\models\Kieumay;
-use backend\models\KieumaySearch;
+use backend\models\UserLevel;
+use backend\models\UserLevelSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * KieumayController implements the CRUD actions for Kieumay model.
+ * UserLevelController implements the CRUD actions for UserLevel model.
  */
-class KieumayController extends Controller
+class UserLevelController extends Controller
 {
     /**
      * @inheritdoc
@@ -30,12 +30,12 @@ class KieumayController extends Controller
     }
 
     /**
-     * Lists all Kieumay models.
+     * Lists all UserLevel models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new KieumaySearch();
+        $searchModel = new UserLevelSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -45,7 +45,7 @@ class KieumayController extends Controller
     }
 
     /**
-     * Displays a single Kieumay model.
+     * Displays a single UserLevel model.
      * @param integer $id
      * @return mixed
      */
@@ -57,14 +57,14 @@ class KieumayController extends Controller
     }
 
     /**
-     * Creates a new Kieumay model.
+     * Creates a new UserLevel model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Kieumay();
-        $date = time();
+        $model = new UserLevel();
+         $date = time();
         $model->created_at = $date;
         $model->updated_at = $date;
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
@@ -77,7 +77,7 @@ class KieumayController extends Controller
     }
 
     /**
-     * Updates an existing Kieumay model.
+     * Updates an existing UserLevel model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -96,7 +96,7 @@ class KieumayController extends Controller
     }
 
     /**
-     * Deletes an existing Kieumay model.
+     * Deletes an existing UserLevel model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -109,15 +109,15 @@ class KieumayController extends Controller
     }
 
     /**
-     * Finds the Kieumay model based on its primary key value.
+     * Finds the UserLevel model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return Kieumay the loaded model
+     * @return UserLevel the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Kieumay::findOne($id)) !== null) {
+        if (($model = UserLevel::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');

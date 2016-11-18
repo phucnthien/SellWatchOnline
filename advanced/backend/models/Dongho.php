@@ -43,10 +43,10 @@ class Dongho extends \yii\db\ActiveRecord
      */
     public function rules()
     {
-        return [
-            [['masp', 'tensp', 'mota', 'brand_id', 'id_kieumay', 'id_kieudang', 'created_at', 'updated_at'], 'required','message'=>'Không thể để trống'],
-            [['brand_id', 'id_kieumay', 'id_kieudang', 'status', 'created_at', 'updated_at'], 'integer'],
-            [['masp', 'tensp', 'mota', 'xuatxu', 'loaikinh', 'loaiday', 'loaivo', 'duongkinh', 'doday', 'dochiunuoc', 'tinhnangkhac', 'giaban', 'gianhap'], 'string', 'max' => 255],
+         return [
+            [['masp', 'tensp', 'mota', 'xuatxu', 'brand_id', 'id_kieumay', 'id_kieudang', 'loaikinh', 'loaiday', 'loaivo', 'duongkinh', 'doday', 'dochiunuoc', 'tinhnangkhac', 'giaban', 'gianhap', 'created_at', 'updated_at','status'], 'required','message'=>'{attribute} không được để trống'],
+            [['brand_id', 'id_kieumay', 'id_kieudang', 'giaban', 'gianhap', 'status', 'created_at', 'updated_at'], 'integer'],
+            [['masp', 'tensp', 'mota', 'xuatxu', 'loaikinh', 'loaiday', 'loaivo', 'duongkinh', 'doday', 'dochiunuoc', 'tinhnangkhac'], 'string', 'max' => 255],
             [['masp'], 'unique'],
         ];
     }

@@ -42,6 +42,7 @@ class LoginForm extends Model
     {
         if (!$this->hasErrors()) {
             $user = $this->getUser();
+
             if (!$user || !$user->validatePassword($this->password)) {
                 $this->addError($attribute, 'Sai tên truy cập hoặc mật khẩu.');
             }
@@ -71,6 +72,9 @@ class LoginForm extends Model
     {
         if ($this->_user === null) {
             $this->_user = User::findByUsername($this->username);
+            //  echo "<pre>";
+            // var_dump($this->username);
+            // die();
         }
 
         return $this->_user;

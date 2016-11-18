@@ -1,6 +1,6 @@
 <?php
 namespace common\models;
-
+use backend\models\Log;
 use Yii;
 use yii\base\NotSupportedException;
 use yii\behaviors\TimestampBehavior;
@@ -30,6 +30,10 @@ class User extends ActiveRecord implements IdentityInterface
     /**
      * @inheritdoc
      */
+     public function getLogs()
+    {
+        return $this->hasMany(Log::className(), ['staff_id' => 'id']);
+    }
     public static function tableName()
     {
         return '{{%user}}';
@@ -186,4 +190,13 @@ class User extends ActiveRecord implements IdentityInterface
     {
         $this->password_reset_token = null;
     }
+     public function attributeLabels()
+    {
+        return [
+            
+            'username' => 'Người dùng',
+            
+        ];
+    }
+
 }

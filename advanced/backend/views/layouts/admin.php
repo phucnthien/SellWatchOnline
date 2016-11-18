@@ -102,6 +102,9 @@ AppAsset::register($this);
                                 <a href="invoice.html"><i class="fa fa-coffee"></i>Danh sách nhân viên</a>
                             </li>
                             <li>
+                                <a href="invoice.html"><i class="fa fa-coffee"></i>Thêm nhân viên</a>
+                            </li>
+                            <li>
                                 <a href="invoice.html"><i class="fa fa-coffee"></i>Tìm nhân viên</a>
                             </li>
                             <li>
@@ -157,8 +160,18 @@ AppAsset::register($this);
                         </ul>
                     </li>
                     <li>
-                        <a href="table.html"><i class="fa fa-flash "></i>LOGS</a>
-
+                        <a href="table.html"><i class="fa fa-flash "></i>LOGS<span class="fa arrow"></a>
+                        <ul class="nav nav-third-level">
+                            <li>
+                                <a href="#"><i class="fa fa-plus "></i>Danh sách log</a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="fa fa-comments-o "></i>Tìm log theo thời gian</a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="fa fa-comments-o "></i>Tìm log theo tên người dùng</a>
+                            </li>
+                        </ul>
                     </li>
 
                 </ul>
@@ -168,15 +181,16 @@ AppAsset::register($this);
         </nav>
         <!-- /. NAV SIDE  -->
         <div id="page-wrapper">
+            <div id="page-inner">
                 <?=  $content ?>
-                
+            </div>
         </div>
         <!-- /. PAGE WRAPPER  -->
     </div>
     <!-- /. WRAPPER  -->
 
     <div id="footer-sec">
-        
+
     </div>
 
 
