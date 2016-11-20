@@ -2,7 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\DetailView;
-
+use backend\widgets\logWidget;
 /* @var $this yii\web\View */
 /* @var $model backend\models\Log */
 
@@ -21,7 +21,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1 style="color: black; margin-bottom: 50px;"><?= Html::encode($this->title) ?></h1>
 
 
-    <?= DetailView::widget([
+     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
             
@@ -33,7 +33,7 @@ $this->params['breadcrumbs'][] = $this->title;
             [
                 'label' => 'Nội dung sửa',
                   
-                'value' => htmlspecialchars_decode(str_replace(".", "<br/>", $model->content)),
+                'value' => $model->content,
 
 
 

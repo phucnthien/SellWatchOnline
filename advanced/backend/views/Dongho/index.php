@@ -10,7 +10,7 @@ use yii\grid\GridView;
 $this->title = 'Donghos';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="dongho-index">
+<div class="dongho-index table-responsive">
 
     <h1><?= Html::encode($this->title) ?></h1>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
@@ -24,28 +24,40 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'id',
-            'masp',
-            'tensp',
-            'mota',
-            'xuatxu',
-            // 'brand_id',
-            // 'id_kieumay',
-            // 'id_kieudang',
-            // 'loaikinh',
-            // 'loaiday',
-            // 'loaivo',
-            // 'duongkinh',
-            // 'doday',
-            // 'dochiunuoc',
-            // 'tinhnangkhac',
-            // 'giaban',
-            // 'gianhap',
-            // 'status',
-            // 'created_at',
-            // 'updated_at',
+           
+    
+            [
+                'label' => 'Mã sản phẩm',
+                'value' => function($data){
+                    return $data->masp;
+                }
+            ],
 
-            ['class' => 'yii\grid\ActionColumn'],
+            [
+                'label' => 'Tên sản phẩm',
+                'value' => function($data){
+                    return $data->tensp;
+                }
+            ],
+
+            [
+                'label' => 'Mã sản phẩm',
+                'value' => function($data){
+                    return $data->giaban;
+                }
+            ],
+
+            [
+                'label' => 'Xuất xứ',
+                'value' => function($data){
+                    return $data->xuatxu;
+                }
+            ],
+        
+            [
+                'class' => 'yii\grid\ActionColumn',
+                'header' => 'Actions'
+            ],
         ],
     ]); ?>
 </div>

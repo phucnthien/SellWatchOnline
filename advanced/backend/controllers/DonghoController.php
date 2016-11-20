@@ -20,12 +20,12 @@ class DonghoController extends Controller
     public function behaviors()
     {
         return [
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['POST'],
-                ],
-            ],
+        'verbs' => [
+        'class' => VerbFilter::className(),
+        'actions' => [
+        'delete' => ['POST'],
+        ],
+        ],
         ];
     }
 
@@ -43,7 +43,7 @@ class DonghoController extends Controller
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
-        ]);
+            ]);
     }
 
     /**
@@ -55,7 +55,7 @@ class DonghoController extends Controller
     {
         return $this->render('view', [
             'model' => $this->findModel($id),
-        ]);
+            ]);
     }
 
     /**
@@ -66,7 +66,7 @@ class DonghoController extends Controller
     public function actionCreate()
     {
         $model = new Dongho();
-         $date = time();
+        $date = time();
         $model->created_at = $date;
         $model->updated_at = $date;
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
@@ -74,7 +74,7 @@ class DonghoController extends Controller
         } else {
             return $this->render('create', [
                 'model' => $model,
-            ]);
+                ]);
         }
     }
 
@@ -93,22 +93,80 @@ class DonghoController extends Controller
         } else {
             return $this->render('update', [
                 'model' => $model,
-            ]);
+                ]);
         }
     }
+    // $key is value want to search, index is search by watch name or watch code
+    public function actionSearch()
 
+    {   
+        $queryParams = Yii::$app->request->queryParams;
+        if (isset($queryParams['productCode'])) {
+            $model = $this->searchByProductCode($queryParams['productCode']);
+            if ($model !== null) {
+                # code...
+                 return $this->render('_search', [
+                'model' => $model,
+                
+                ]);
+            }
+            else
+            {
+                return $this->render('_search', [
+                
+                'error' => 'Không tìm thấy sản phẩm nào',
+                ]);
+            }
+           
+            # code...
+        }
+      
+         return $this->render('_search');
+      
+
+        // $model =  new Dongho();
+        // if ($model->load(Yii::$app->request->post())) {
+        //     # code...
+
+        //     return $this->render('_search', [
+        //         'model' => $model,
+        //         ]);
+        // }
+        // else
+        // {
+        //     return $this->render('_search', [
+        //         'model' => $model,
+        //         ]);
+        // }
+
+      //   if ($id == -1) {
+      //       return $this->render('_search',[
+      //               'model' => $model
+      //           ]);
+      //           # code...
+      //   }
+      //   else
+      //   {
+      //     Customer::find()->where(['id' => 10])->one();
+
+      //     return $this->render('_search', [
+      //       'model' => Dongho::find()->where(['id' => $id])->one()
+
+      //       ]);
+      // }
+  }
     /**
      * Deletes an existing Dongho model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
      */
-    public function actionDelete($id)
-    {
-        $this->findModel($id)->delete();
+    // public function actionDelete($id)
+    // {
+    //     $this->findModel($id)->delete();
 
-        return $this->redirect(['index']);
-    }
+    //     return $this->redirect(['index']);
+    // }
 
     /**
      * Finds the Dongho model based on its primary key value.
@@ -125,4 +183,10 @@ class DonghoController extends Controller
             throw new NotFoundHttpException('The requested page does not exist.');
         }
     }
+   
+     private function searchByProductCode($productCode){
+        $model = Dongho::find()->where(['masp' =>$productCode])->one();
+        return $model;
+    }
+
 }

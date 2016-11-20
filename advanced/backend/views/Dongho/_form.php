@@ -48,9 +48,7 @@ use backend\models\Kieudang;
     <?= $form->field($model, 'gianhap')->textInput(['maxlength' => true]) ?>
 
     <?=$form->field($model, 'status')->dropdownList(['1' => 'Sẵn hàng', '2' => 'Hết hàng', '0' => 'Chưa về'],['prompt'=>'Nhập trạng thái'])?>
-    <!-- <?= $form->field($model, 'created_at')->textInput() ?>
-
-    <?= $form->field($model, 'updated_at')->textInput() ?> -->
+  
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Thêm sản phẩm' : 'Cập nhật', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary', 'style'=>'margin-left:650px']) ?>

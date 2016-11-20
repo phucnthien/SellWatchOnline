@@ -24,8 +24,9 @@ class m161114_070537_donhang extends Migration
             'staff_create_id' => $this->integer()->notNull(),
             'deliverer_name' => $this->string(),
             'staff_export_id' => $this->string(),
-            'status' =>$this->integer()->notNull()->defaultValue(1),
-            'deliver_at' => $this->integer()->notNull(),
+            'status' =>$this->integer()->notNull(),
+            'delivered_at' => $this->integer(),
+            'more_info' => $this->text(),
             'created_at' => $this->integer()->notNull(),
             'updated_at' => $this->integer()->notNull(),
         ], $tableOptions);

@@ -2,7 +2,9 @@
 
 use yii\helpers\Html;
 use yii\widgets\DetailView;
-
+use backend\models\Thuonghieu;
+use backend\models\Kieumay;
+use backend\models\Kieudang;
 /* @var $this yii\web\View */
 /* @var $model backend\models\Dongho */
 
@@ -19,36 +21,83 @@ $this->params['breadcrumbs'][] = $this->title;
         <?= Html::a('Delete', ['delete', 'id' => $model->id], [
             'class' => 'btn btn-danger',
             'data' => [
-                'confirm' => 'Are you sure you want to delete this item?',
-                'method' => 'post',
+            'confirm' => 'Are you sure you want to delete this item?',
+            'method' => 'post',
             ],
-        ]) ?>
-    </p>
+            ]) ?>
+        </p>
+        <?php 
+        function checkStatus($model){
+          switch ($model->status) {
+            case '1':
+            return 'Sẵn hàng';
+                            # code...
+            break;
+            case '2':
+            return 'Hết hàng';
+                            # code...
+            break;
+            case '0':
+            return 'Chưa về';
+                        # code...
+            break;
 
+        }
+
+    }
+
+
+    ?>
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
-            'id',
-            'masp',
-            'tensp',
-            'mota',
-            'xuatxu',
-            'brand_id',
-            'id_kieumay',
-            'id_kieudang',
-            'loaikinh',
-            'loaiday',
-            'loaivo',
-            'duongkinh',
-            'doday',
-            'dochiunuoc',
-            'tinhnangkhac',
-            'giaban',
-            'gianhap',
-            'status',
-            'created_at',
-            'updated_at',
-        ],
-    ]) ?>
+        'id',
+        'masp',
+        'tensp',
+        'mota',
+        'xuatxu',
+        [
+            'label'=>'Nhãn hiệu',
+            'value' => Thuonghieu::find()->select(['brand'])->where(['id' => $model->brand_id])->column()[0],
 
-</div>
+        ],
+        [
+            'label'=>'Kiểu máy',
+            'value' => Kieumay::find()->select(['kieumay'])->where(['id' => $model->id_kieumay])->column()[0],
+
+        ],
+         [
+            'label'=>'Kiểu dáng',
+            'value' => Kieudang::find()->select(['kieudang'])->where(['id' => $model->id_kieudang])->column()[0],
+
+        ],
+       
+        'loaikinh',
+        'loaiday',
+        'loaivo',
+        'duongkinh',
+        'doday',
+        'dochiunuoc',
+        'tinhnangkhac',
+        'giaban',
+        'gianhap',
+     
+        [
+        'label' => 'Trạng thái',
+        'value' => checkStatus($model)
+
+
+        ],
+        [
+        'label' => 'Thời gian tạo',
+        'value' => date('Y-m-d H:i:s',$model->created_at)
+        ]
+        ,
+        [
+        'label' => 'Thời gian cập nhật',
+        'value' => date('Y-m-d H:i:s',$model->updated_at)
+        ]
+        ],
+        ]) ?>
+
+    </div>

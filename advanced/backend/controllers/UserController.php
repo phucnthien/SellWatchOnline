@@ -117,10 +117,9 @@ class UserController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-        $oldAttributes = $model->attributes;
       
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-              LogController::writeLog(Log::tableName(),"Sửa nhân viên :. {.Dữ liệu cũ: ".implode(' ',$oldAttributes) . "}. {Dữ liệu mới: ".implode(' ', $model->attributes)."}" , Yii::$app->user->getId() );
+              LogController::writeLog(User::tableName(),"Sửa nhân viên : Tên đăng nhập: $model->username, ID: $model->id " , Yii::$app->user->getId() );
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             
@@ -136,13 +135,7 @@ class UserController extends Controller
      * @param integer $id
      * @return mixed
      */
-    public function actionDelete($id)
-    {
-        $this->findModel($id)->delete();
-
-        return $this->redirect(['index']);
-    }
-
+  
     /**
      * Finds the User model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
@@ -158,17 +151,6 @@ class UserController extends Controller
             throw new NotFoundHttpException('The requested page does not exist.');
         }
     }
-    public function dectectUpdateChange($newAttribute,$oldAttribute)
-    {
-        // $contentChange = 'Thay đổi: ';
-        // if ($newAttribute['username'] != $oldAttribute['username'] ) {
-        //     $contentChange .= "username: $oldAttribute['username'] =>  $newAttribute['username'] ";
-        //     # code...
-        // }
-        // if ($newAttribute['display_name'] != $oldAttribute['username'] ) {
-        //     $contentChange .= "username: $oldAttribute['username'] =>  $newAttribute['username'] ";
-        //     # code...
-        // }
-    }
+
 
 }

@@ -43,13 +43,15 @@ class Dongho extends \yii\db\ActiveRecord
      */
     public function rules()
     {
-         return [
-            [['masp', 'tensp', 'mota', 'xuatxu', 'brand_id', 'id_kieumay', 'id_kieudang', 'loaikinh', 'loaiday', 'loaivo', 'duongkinh', 'doday', 'dochiunuoc', 'tinhnangkhac', 'giaban', 'gianhap', 'created_at', 'updated_at','status'], 'required','message'=>'{attribute} không được để trống'],
+        return [
+            [['masp', 'tensp', 'xuatxu', 'brand_id', 'id_kieumay', 'id_kieudang', 'loaikinh', 'loaiday', 'loaivo', 'duongkinh', 'doday', 'dochiunuoc', 'giaban', 'gianhap', 'status', 'created_at', 'updated_at'], 'required','message'=>'{attribute} không được để trống'],
+            [['mota'], 'string'],
             [['brand_id', 'id_kieumay', 'id_kieudang', 'giaban', 'gianhap', 'status', 'created_at', 'updated_at'], 'integer'],
-            [['masp', 'tensp', 'mota', 'xuatxu', 'loaikinh', 'loaiday', 'loaivo', 'duongkinh', 'doday', 'dochiunuoc', 'tinhnangkhac'], 'string', 'max' => 255],
+            [['masp', 'tensp', 'xuatxu', 'loaikinh', 'loaiday', 'loaivo', 'duongkinh', 'doday', 'dochiunuoc', 'tinhnangkhac'], 'string', 'max' => 255],
             [['masp'], 'unique'],
         ];
     }
+
 
     /**
      * @inheritdoc
